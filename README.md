@@ -210,32 +210,5 @@ Content-Type: application/json
     }
 }
 ```
-# config.yaml.template服务相关配置
-logdir: "mount/log"
 
-预处理相关配置
-preprocess_pipeline:
-  - "basic"
-max_sent_len: 100  # 最长句长限制（超过此句长限制的将对其进行分句处理，分句后每个单句仍然超过长度限制的则会抛出异常）
-
-term保护相关配置
-term_mask_symbol: "@@"
-term_protection_dict: "mount/dict.xlsx"  # 可以以excel的形式指定初始化词表
-term_protection_db: "mount/dict.db"  # 词表的增删查改将基于此sqlite db
-
- 分词相关配置
-tok_method: "spm"
-tok_src_model: "mount/tok.src.model"
-tok_tgt_model: "mount/tok.tgt.model"
-
-翻译模型相关配置
-translate_method: "opennmt"
-translate_model: "mount/ct2_convert"
-translate_src_lang: "en"
-translate_tgt_lang: "zh"
-translate_model_device: "cpu"
-translate_beam_size: 3
-
-docker 相关配置
-docker_image_tag_suffix: device_cuda-fairseq_v0.10.1
 
